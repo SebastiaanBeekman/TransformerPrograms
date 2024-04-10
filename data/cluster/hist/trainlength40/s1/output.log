@@ -1,0 +1,13 @@
+I 2024-04-03T07:50:30 __main__:649: args: {'output_dir': 'output/length/rasp/hist/trainlength40/s1', 'dataset': 'hist', 'vocab_size': 8, 'dataset_size': 20000, 'train_min_length': 1, 'train_max_length': 40, 'test_min_length': 41, 'test_max_length': 50, 'seed': 1, 'do_lower': 0, 'unique': 1, 'replace_numbers': 0, 'n_vars_cat': 1, 'n_vars_num': 1, 'd_var': 50, 'n_heads_cat': 4, 'n_heads_num': 4, 'd_mlp': 64, 'n_cat_mlps': 2, 'n_num_mlps': 2, 'mlp_vars_in': 2, 'n_layers': 1, 'sample_fn': 'gumbel_soft', 'one_hot_embed': True, 'count_only': True, 'selector_width': 0, 'attention_type': 'cat', 'rel_pos_bias': 'fixed', 'mlp_type': 'cat', 'autoregressive': False, 'glove_embeddings': 'data/glove.840B.300d.txt', 'do_glove': 0, 'unembed_mask': 1, 'pool_outputs': 0, 'standard': False, 'd_model': 64, 'd_head': None, 'n_heads': 2, 'dropout': 0.0, 'lr': 0.05, 'max_grad_norm': None, 'gumbel_samples': 1, 'n_epochs': 250, 'batch_size': 512, 'tau_init': 3.0, 'tau_end': 0.01, 'tau_schedule': 'geomspace', 'loss_agg': 'per_token', 'save': True, 'save_code': True, 'device': 'cpu'}
+I 2024-04-03T07:50:33 __main__:617: vocab size: 8
+I 2024-04-03T07:50:33 __main__:618: X_train: (20000, 40), Y_train, (20000, 40)
+I 2024-04-03T07:50:33 __main__:619: X_val: (4000, 40), Y_val, (4000, 40)
+I 2024-04-03T07:50:33 __main__:620: X_test: (4000, 50), Y_test, (4000, 50)
+I 2024-04-03T07:50:33 __main__:623: 20000/20000 unique training inputs
+I 2024-04-03T07:50:33 __main__:624: 4000/4000 unique test inputs not in train
+I 2024-04-03T10:22:08 __main__:446: train: loss=0.0372665598988533, acc=0.9967741331798766, metrics={}
+I 2024-04-03T10:22:10 __main__:446: val: loss=0.03399248421192169, acc=0.9975207744153887, metrics={}
+I 2024-04-03T10:22:12 __main__:446: test: loss=0.5148153305053711, acc=0.8343103448275863, metrics={}
+I 2024-04-03T10:22:12 __main__:463: saving model to output/length/rasp/hist/trainlength40/s1/model.pt
+I 2024-04-03T10:22:12 __main__:467: saving code to output/length/rasp/hist/trainlength40/s1
+I 2024-04-03T10:22:12 __main__:643: writing results to output/length/rasp/hist/trainlength40/s1/results.csv

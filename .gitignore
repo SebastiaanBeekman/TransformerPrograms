@@ -7,7 +7,8 @@ Gemfile.lock
 *~
 *__pycache__*
 .vscode
-data
+# data
+data/glove.840B.300d.txt
 .DS_Store
 */output/*
 output/*
