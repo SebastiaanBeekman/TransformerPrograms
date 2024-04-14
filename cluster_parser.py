@@ -2,9 +2,9 @@ import re
 import numpy as np
 import pandas as pd
 
-train_acc_pattern = re.compile(r'train: loss=(nan|[\d.e-]+), acc=([\d.]+),')
-val_acc_pattern = re.compile(r'val: loss=(nan|[\d.e-]+), acc=([\d.]+),')
-test_acc_pattern = re.compile(r'test: loss=(nan|[\d.e-]+), acc=([\d.]+),')
+train_acc_pattern = re.compile(r'\(train\): loss=(nan|[\d.e-]+), acc=([\d.]+)')
+val_acc_pattern = re.compile(r'\(val\): loss=(nan|[\d.e-]+), acc=([\d.]+)')
+test_acc_pattern = re.compile(r'\(test\): loss=(nan|[\d.e-]+), acc=([\d.]+)')
             
 def get_acc(file):
     train_acc, val_acc, test_acc = None, None, None
@@ -41,14 +41,14 @@ def length_gen(files):
                     acc[j] = get_acc(f)
 
             train_values[file][0].append(np.round(np.mean(acc[:, 0])))
-            train_values[file][1].append(np.round(acc[np.argmax(acc[:, 1]), 0]))
-            train_values[file][2].append(np.round(acc[np.argmin(acc[:, 1]), 0]))
+            train_values[file][1].append(np.round(acc[np.argmax(acc[:, 2]), 0]))
+            train_values[file][2].append(np.round(acc[np.argmin(acc[:, 2]), 0]))
             train_values[file][3].append(np.round(np.median(acc[:, 0])))
             
-            test_values[file][0].append(np.round(np.mean(acc[:, 1]), 4))
-            test_values[file][1].append(np.round(np.max(acc[:, 1]), 4))
-            test_values[file][2].append(np.round(np.min(acc[:, 1]), 4))
-            test_values[file][3].append(np.round(np.median(acc[:, 1]), 4))
+            test_values[file][0].append(np.round(np.mean(acc[:, 2]), 4))
+            test_values[file][1].append(np.round(np.max(acc[:, 2]), 4))
+            test_values[file][2].append(np.round(np.min(acc[:, 2]), 4))
+            test_values[file][3].append(np.round(np.median(acc[:, 2]), 4))
 
             
             train_values[file][0].append(np.round([np.mean(acc[:, 0]), acc[np.argmax(acc[:, 1]), 0], acc[np.argmin(acc[:, 1]), 0], np.median(acc[:, 0])], 4))
@@ -58,22 +58,27 @@ def length_gen(files):
         # df.to_excel(f'data/excel/{file}.xlsx', index=False, float_format='%.4f')
         
 def grid_search(files):
-    for l in [1, 2, 3, 4]: # Layers
+    for l in [1, 2, 3]: # Layers
         test_values = {file : [] for file in files}
         for file in files:
             for h in [2, 4, 8, 16]: # Heads
                 for m in [2, 4, 8]: # MLPs 
                     acc = np.zeros((5, 3))
                     for i in range(5):
-                        log_file_path = f"data/cluster/grid/{file}/nlayers{l}heads{h}mlps{m}/s{i}/output.log"
-                        with open(log_file_path, 'r') as f:
-                            acc[i] = get_acc(f)
-                    test_values[file].append(np.round(acc[np.argmax(acc[:, 2]), 2], 4))
+                        log_file_path = f"data/cluster/new/{file}/nlayers{l}heads{h}mlps{m}/s{i}/output.log"
+                        try :
+                            with open(log_file_path, 'r') as f:
+                                acc[i] = get_acc(f)
+                        except:
+                            print(log_file_path)
+                            continue
+                    test_values[file].append(np.round(acc[np.argmax(acc[:, 1]), 2], 4))
         df = pd.DataFrame({file: test_values[file] for file in files}).transpose()
-        df.to_excel(f'data/excel/grid/nlayers{l}.xlsx', index=True, float_format='%.4f')
+        df.to_excel(f'data/excel/new/nlayers{l}.xlsx', index=True, float_format='%.4f')
 
 
 if __name__ == "__main__":
-    files = ["reverse", "hist", "double_hist", "sort", "most_freq", "dyck1", "dyck2"]
+    files = ["addition", "addition_hints"]
+    
     # length_gen(files)
     grid_search(files)
