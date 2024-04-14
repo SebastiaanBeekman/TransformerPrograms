@@ -2,6 +2,7 @@
 
 This repository contains the code for our reproduction of the [Learning Transformer Programs](https://arxiv.org/abs/2306.01128).
 The code can be used to train a modified Transformer to solve RASP tasks and convert it into a human-readable Python program.
+The [blog post](https://hackmd.io/@SebastiaanBeekman/BetterTransformerPrograms) regarding the reproduction.
 
 <img src="figures/methodology.png" width="100%" height="auto"/>
 
