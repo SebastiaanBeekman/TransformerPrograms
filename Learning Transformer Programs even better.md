@@ -10,7 +10,6 @@ We performed a gridsearch for the parameters of all problems tested by the paper
 ## Refactoring
 
 When multiple developers work on the same codebase, problems can occur. This is where refactoring comes into play. It turns redundant, unreadable, and/or incorrect code into clean code. Besides, refactoring increases the quality of the code itself *and the structure around it*. So maintaining code and functionalities becomes straightforward.
-
 ![xkcd](https://hackmd.io/_uploads/rJbjasUeR.jpg)
 
 Despite that, refactoring is easier said than done. Creating clean code means understanding the codebase and its functionalities. This is where most of the problems arise. Developers are notoriously known for not writing (any) documentation. This lack of documentation can turn refactoring into a daunting task. Without proper documentation, understanding the codebase becomes similar to solving a complex puzzle without all the pieces. 
@@ -115,17 +114,16 @@ For the additional formatting "index hints" as used by Zhou *et al.* [[2]](#2) a
 
 For both tasks: addition and addition with index hints a grid search was performed as described in previous sections.
 
+### Results
+
+The results of our addition experiments are shown in the figure below.
+
 <div style="display: flex;flex-direction: row;justify-content: center;">
     <div style="display: flex;flex-direction: column;">
         <img src="https://hackmd.io/_uploads/H1eojjtg0.png" alt="performance of the addition tasks" width="375"/>
     <p>*Multilayer Perception</p>
     </div>
 </div>
-
-
-### Results
-
-The results of our addition experiments are shown in the figure below.
 
 When comparing the addition task with and without hints, without hints starts outperforming the addition task with hints for more layers and attention heads. This result is unexpected and might be worth exploring in further research.
 
