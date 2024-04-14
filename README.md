@@ -11,6 +11,7 @@ The code can be used to train a modified Transformer to solve RASP tasks and con
   * [Training](#Training)
   * [Converting to code](#Converting-to-code)
 * [Results](#Results)
+* [Contributions](#Contributions)
 * [Citation](#Citation)
 
 ## Setup
