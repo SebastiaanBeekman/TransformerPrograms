@@ -32,14 +32,14 @@ alphabet = list(string.ascii_lowercase)
 
 logger = logging.get_logger(__name__)
 
-def make_addition(dataset_size, vocab_size=10, min_length=1, max_length=5, seed=0):
+def make_addition(dataset_size, vocab_size=10, min_length=1, max_length=2, seed=0):
     vocab = np.array([str(i) for i in range(vocab_size)]) # 0 to vocab_size-1
     sents, tags = [], [] # input sentence, output string
     np.random.seed(seed)
 
     for _ in range(dataset_size):
 
-        l1 = np.random.randint(1, max_length//2+1)
+        l1 = np.random.randint(1, max_length+1)
         l2 = np.random.randint(max(1, min_length-l1), max_length//2+1)
         sent = np.random.choice(vocab, size=l1+l2+1, replace=True).tolist()
         sent[l1] = "+"
@@ -52,15 +52,15 @@ def make_addition(dataset_size, vocab_size=10, min_length=1, max_length=5, seed=
     return pd.DataFrame({"sent": sents, "tags": tags})
 
 
-def make_addition_with_hints(dataset_size, vocab_size=10, min_length=1, max_length=5, seed=0):
+def make_addition_with_hints(dataset_size, vocab_size=10, min_length=1, max_length=2, seed=0):
     vocab = np.array([str(i) for i in range(vocab_size)])
     sents, tags = [], [] # input sentence, output string
     np.random.seed(seed)
 
     for _ in range(dataset_size):
 
-        l1 = np.random.randint(1, max_length//2+1)
-        l2 = np.random.randint(max(1, min_length-l1), max_length//2+1)
+        l1 = np.random.randint(1, max_length+1)
+        l2 = np.random.randint(max(1, min_length-l1), max_length+1)
         sent = np.random.choice(vocab, size=l1+l2, replace=True).tolist()
         sent.insert(l1, "+")
         

@@ -7,9 +7,9 @@ do
           --vocab_size 10 \
           --dataset_size 20000 \
           --train_min_length 1 \
-          --train_max_length 4 \
+          --train_max_length 2 \
           --test_min_length 1 \
-          --test_max_length 4 \
+          --test_max_length 2 \
           --d_var 13 \
           --n_heads_cat 4 \
           --n_heads_num 4 \
