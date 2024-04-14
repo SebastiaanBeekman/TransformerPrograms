@@ -63,6 +63,12 @@ python src/decompile.py --path output/sort/ --output_dir programs/sort/
 
 Below are our reproduction results of the paper.
 
+<div>
+ <img src="https://github.com/SebastiaanBeekman/TransformerPrograms/assets/45938621/f34c8d04-3320-48d0-b0b6-b09fe4307279" alt="table" width="500"/>
+ <img src="https://github.com/SebastiaanBeekman/TransformerPrograms/assets/45938621/ca57c54e-f3e5-40c6-a270-42a9221354b8" alt="addition" width="500"/>
+ </div>
+*Multilayer Perceptron Layers
+
 # Contributions
 <table>
     <tr>
@@ -91,7 +97,7 @@ Below are our reproduction results of the paper.
 </table>
 
 
-# Citation
+# Citations
 
 ```bibtex
 @article{friedman2023learning,
