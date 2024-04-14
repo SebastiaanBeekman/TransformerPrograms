@@ -1,6 +1,6 @@
 #!/bin/bash 
 
-for SEED in 0 1 2 3 4
+for RUN in 0 1 2 3 4
 do
      python ../src/run.py \
           --dataset "addition" \
@@ -20,5 +20,5 @@ do
           --count_only \
           --save \
           --device "cpu" \
-          --output_dir "output/rasp/addition/s0";
+          --output_dir "output/rasp/addition/r${RUN}";
 done
