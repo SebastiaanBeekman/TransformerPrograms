@@ -10,6 +10,7 @@ We performed a gridsearch for the parameters of all problems tested by the paper
 ## Refactoring
 
 When multiple developers work on the same codebase, problems can occur. This is where refactoring comes into play. It turns redundant, unreadable, and/or incorrect code into clean code. Besides, refactoring increases the quality of the code itself *and the structure around it*. So maintaining code and functionalities becomes straightforward.
+
 ![xkcd](https://hackmd.io/_uploads/rJbjasUeR.jpg)
 
 Despite that, refactoring is easier said than done. Creating clean code means understanding the codebase and its functionalities. This is where most of the problems arise. Developers are notoriously known for not writing (any) documentation. This lack of documentation can turn refactoring into a daunting task. Without proper documentation, understanding the codebase becomes similar to solving a complex puzzle without all the pieces. 
