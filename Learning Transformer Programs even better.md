@@ -1,5 +1,5 @@
 # Learning Transformer Programs even better
-*Group 8: Nina Oosterlaar, Sebastiaan Beekman, Joyce Sung, and Zoya van Meel*
+*Group 8: Nina Oosterlaar (5092612 - nimoosterlaar@tudelft.nl), Sebastiaan Beekman (5885116 - jsbeekman@tudelft.nl), Joyce Sung (5011825 - wjsung@tudelft.nl), and Zoya van Meel (5114470 - hvanmeel@tudelft.nl)*
 
 
 Transformers have revolutionised the deep learning field. The next steps in deep learning research involve figuring out what these models are and aren’t capable of. Traditionally, mechanistic interpretability was attempted via reverse engineering, such as inspecting the trained transformer weights or other post-hoc methods [[4]](#4). However, these methods are only partial explanations and can be misleading [[5]](#5). Friedman, Wettig, and Chen [[1]](#1) have designed a transformer training procedure built on the RASP programming language. RASP is a simple language that can be compiled into transformer weights. Friedman *et al*. [[1]](#1) modified a transformer such that the weights of a trained model can be extracted into human-readable program code. They call these programs Transformer Programs. Transformer Programs were learned for a variety of simple problems, including string reversal, sorting, and Dyck-language recognition. We attempt to reproduce the methodology they laid out and expand upon their work.
@@ -11,7 +11,7 @@ We performed a gridsearch for the parameters of all problems tested by the paper
 
 When multiple developers work on the same codebase, problems can occur. This is where refactoring comes into play. It turns redundant, unreadable, and/or incorrect code into clean code. Besides, refactoring increases the quality of the code itself *and the structure around it*. So maintaining code and functionalities becomes straightforward.
 
-![xkcd](https://hackmd.io/_uploads/rJbjasUeR.jpg)
+<img src="https://hackmd.io/_uploads/rJbjasUeR.jpg" width=500/>
 
 Despite that, refactoring is easier said than done. Creating clean code means understanding the codebase and its functionalities. This is where most of the problems arise. Developers are notoriously known for not writing (any) documentation. This lack of documentation can turn refactoring into a daunting task. Without proper documentation, understanding the codebase becomes similar to solving a complex puzzle without all the pieces. 
 
